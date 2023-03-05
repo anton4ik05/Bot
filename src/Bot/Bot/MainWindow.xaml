@@ -19,6 +19,12 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         
+        <Button Grid.Row="0" Grid.Column="0" Width="64px" Height="64px" Background="White" BorderBrush="White">
+            <Button.Content>
+                <Image Source="/On.png" Cursor="Pen"></Image>
+            </Button.Content>
+        </Button>
+        
         <TabControl Grid.Row="1" Grid.ColumnSpan="3" x:Name="Actions">
             <TabItem>
                 <TabItem.Header>
