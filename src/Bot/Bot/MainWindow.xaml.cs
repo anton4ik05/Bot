@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Microsoft.Extensions.Logging;
+using System.Linq;
+using System.Windows;
 using System.Windows.Media;
 
 namespace Bot
@@ -9,22 +11,24 @@ namespace Bot
   public partial class MainWindow : Window
   {
     static bool IsRunning = false;
-
-    public MainWindow()
+    private readonly ILogger _logger;
+    public MainWindow(ILogger loger)
     {
+      _logger = loger;
       InitializeComponent();
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
+      _logger.LogDebug("Button click");
       if(IsRunning)
       {
-        ChangeStateButton.Background = Brushes.GreenYellow;
+        PowerButton.Background = Brushes.GreenYellow;
         IsRunning = !IsRunning;
       }
       else
       {
-        ChangeStateButton.Background = Brushes.Red;
+        PowerButton.Background = Brushes.Red;
         IsRunning = !IsRunning;
       }
     }

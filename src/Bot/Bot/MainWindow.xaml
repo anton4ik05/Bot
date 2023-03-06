@@ -14,15 +14,12 @@
                 </Style>
             </Style.Resources>
         </Style>
-
-
     </Window.Resources>
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="100px"></RowDefinition>
             <RowDefinition Height="350px"></RowDefinition>
-            <RowDefinition Height="400px">
-            </RowDefinition>
+            <RowDefinition Height="400px"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -31,7 +28,7 @@
         </Grid.ColumnDefinitions>
 
         <Button
-            x:Name="ChangeStateButton"
+            x:Name="PowerButton"
             Style="{DynamicResource RoundButton}"
             Grid.Row="0" 
             Grid.Column="0" 
