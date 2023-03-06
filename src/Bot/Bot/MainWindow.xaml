@@ -6,6 +6,17 @@
         xmlns:local="clr-namespace:Bot"
         mc:Ignorable="d"
         Title="CoC Bot" Height="850" Width="550">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="50" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
+
+    </Window.Resources>
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="100px"></RowDefinition>
@@ -18,13 +29,31 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
-        <Button Grid.Row="0" Grid.Column="0" Width="64px" Height="64px" Background="White" BorderBrush="White">
+
+        <Button
+            x:Name="ChangeStateButton"
+            Style="{DynamicResource RoundButton}"
+            Grid.Row="0" 
+            Grid.Column="0" 
+            Width="64px" 
+            Height="64px" 
+            Background= "GreenYellow" 
+            BorderBrush="White"
+            Click="Button_Click">
             <Button.Content>
-                <Image Source="/On.png" Cursor="Pen"></Image>
+                <Image Source="/power-on.png" Cursor="Hand" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
             </Button.Content>
         </Button>
-        
+
         <TabControl Grid.Row="1" Grid.ColumnSpan="3" x:Name="Actions">
             <TabItem>
                 <TabItem.Header>

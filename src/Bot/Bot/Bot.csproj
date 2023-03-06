@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <None Remove="On.png" />
+      <None Remove="power-on.png" />
     </ItemGroup>
 
     <ItemGroup>
@@ -16,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Resource Include="On.png" />
+      <Resource Include="power-on.png" />
     </ItemGroup>
 
 </Project>
