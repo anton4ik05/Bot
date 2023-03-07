@@ -25,9 +25,10 @@ namespace Bot.Providers
     public void ChangeLog(string message)
     {
       var mainWindow = _provider.GetRequiredService<MainWindow>();
-      Paragraph p = new(new Run(message))
+      Paragraph p = new(new Run("[" + DateTime.Now + "] " + message))
       {
-        LineHeight = 1
+        LineHeight = 1,
+        FontSize = 16
       };
       mainWindow.Log.Document.Blocks.Add(p);
       mainWindow.Log.ScrollToEnd();
