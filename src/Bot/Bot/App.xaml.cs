@@ -22,7 +22,7 @@ namespace Bot
       services.AddLogging(builder =>
       {
         Log.Logger = new LoggerConfiguration()
-        .WriteTo.File(@"log.txt", rollingInterval: RollingInterval.Day)
+        .WriteTo.File(@"../../../logs/log.txt", rollingInterval: RollingInterval.Day)
         .MinimumLevel.Verbose()
         .CreateLogger();
 

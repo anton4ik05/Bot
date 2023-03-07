@@ -20,16 +20,17 @@ namespace Bot
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-      _logger.LogDebug("Clock");
       if(IsRunning)
       {
         PowerButton.Background = Brushes.GreenYellow;
         IsRunning = !IsRunning;
+        _logger.LogDebug("Stop application");
       }
       else
       {
         PowerButton.Background = Brushes.Red;
         IsRunning = !IsRunning;
+        _logger.LogDebug("Start application");
       }
     }
   }
