@@ -11,16 +11,16 @@ namespace Bot
   public partial class MainWindow : Window
   {
     static bool IsRunning = false;
-    private readonly ILogger _logger;
-    public MainWindow(ILogger loger)
+    private ILogger<MainWindow> _logger;
+    public MainWindow(ILogger<MainWindow> logger)
     {
-      _logger = loger;
       InitializeComponent();
+      _logger = logger;
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-      _logger.LogDebug("Button click");
+      _logger.LogDebug("Clock");
       if(IsRunning)
       {
         PowerButton.Background = Brushes.GreenYellow;

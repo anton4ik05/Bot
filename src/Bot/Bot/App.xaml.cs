@@ -21,19 +21,19 @@ namespace Bot
     {
       services.AddLogging(builder =>
       {
-        LoggerConfiguration loggerConfiguration = new LoggerConfiguration()
-        .WriteTo.File("test.txt", rollingInterval: RollingInterval.Day);
+        Log.Logger = new LoggerConfiguration()
+        .WriteTo.File(@"log.txt", rollingInterval: RollingInterval.Day)
+        .MinimumLevel.Verbose()
+        .CreateLogger();
 
-        builder.AddSerilog(loggerConfiguration.CreateLogger());
+        builder.AddSerilog();
       });
       services.AddSingleton<MainWindow>();
     }
-
-    protected override void OnStartup(StartupEventArgs e)
+    private void OnStartup(object sender, StartupEventArgs e)
     {
       var mainWindow = serviceProvider.GetService<MainWindow>();
       mainWindow!.Show();
-      base.OnStartup(e);
     }
   }
 }
