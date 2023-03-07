@@ -11,12 +11,12 @@ namespace Bot
   /// </summary>
   public partial class App : Application
   {
-    private ServiceProvider serviceProvider;
+    private readonly ServiceProvider _serviceProvider;
     public App()
     {
       ServiceCollection services = new ServiceCollection();
       ConfigureServices(services);
-      serviceProvider = services.BuildServiceProvider();
+      _serviceProvider = services.BuildServiceProvider();
     }
     private void ConfigureServices(ServiceCollection services)
     {
@@ -34,7 +34,7 @@ namespace Bot
     }
     private void OnStartup(object sender, StartupEventArgs e)
     {
-      var mainWindow = serviceProvider.GetService<MainWindow>();
+      var mainWindow = _serviceProvider.GetService<MainWindow>();
       mainWindow!.Show();
     }
   }

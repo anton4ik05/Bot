@@ -25,13 +25,14 @@ namespace Bot
         PowerButton.Background = Brushes.GreenYellow;
         _isRunning = !_isRunning;
         _logger.LogDebug("Stop application");
-        _journalProvider.ChangeLog("asd");
+        _journalProvider.ChangeLog("Остановка бота");
       }
       else
       {
         PowerButton.Background = Brushes.Red;
         _isRunning = !_isRunning;
         _logger.LogDebug("Start application");
+        _journalProvider.ChangeLog("Запуск Nox и Clash of clans");
       }
     }
   }
