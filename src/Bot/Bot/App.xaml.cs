@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Bot.Providers;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using System.Windows;
@@ -29,6 +30,7 @@ namespace Bot
         builder.AddSerilog();
       });
       services.AddSingleton<MainWindow>();
+      services.AddSingleton<JournalProvider>();
     }
     private void OnStartup(object sender, StartupEventArgs e)
     {

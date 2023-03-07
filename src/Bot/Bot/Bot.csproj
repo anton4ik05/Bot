@@ -15,6 +15,7 @@
     <ItemGroup>
       <Folder Include="Assets\Interface" />
       <Folder Include="logs\" />
+      <Folder Include="Models\" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,21 +1,21 @@
-﻿using Microsoft.Extensions.Logging;
-using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media;
+using Microsoft.Extensions.Logging;
+using Bot.Providers;
 
 namespace Bot
 {
-  /// <summary>
-  /// Interaction logic for MainWindow.xaml
-  /// </summary>
   public partial class MainWindow : Window
   {
     static bool IsRunning = false;
     private ILogger<MainWindow> _logger;
-    public MainWindow(ILogger<MainWindow> logger)
+    private readonly JournalProvider _journalProvider;
+    public MainWindow(ILogger<MainWindow> logger, JournalProvider journalProvider)
     {
       InitializeComponent();
       _logger = logger;
+      _journalProvider = journalProvider;
+      log.Document.Blocks.Clear();
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
@@ -25,6 +25,7 @@ namespace Bot
         PowerButton.Background = Brushes.GreenYellow;
         IsRunning = !IsRunning;
         _logger.LogDebug("Stop application");
+        _journalProvider.ChangeLog("asd");
       }
       else
       {
