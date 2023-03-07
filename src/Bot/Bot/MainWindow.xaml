@@ -18,8 +18,8 @@
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="100px"></RowDefinition>
-            <RowDefinition Height="350px"></RowDefinition>
-            <RowDefinition Height="400px"></RowDefinition>
+            <RowDefinition Height="650px"></RowDefinition>
+            <RowDefinition Height="100px"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100px"></ColumnDefinition>
@@ -74,7 +74,7 @@
                 </TabItem.Header>
                 <ScrollViewer>
                     <RichTextBox 
-                    x:Name="log" 
+                    x:Name="Log" 
                     IsReadOnly="true"
                    />
                 </ScrollViewer>

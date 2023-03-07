@@ -7,30 +7,30 @@ namespace Bot
 {
   public partial class MainWindow : Window
   {
-    static bool IsRunning = false;
-    private ILogger<MainWindow> _logger;
+    private static bool _isRunning = false;
+    private readonly ILogger<MainWindow> _logger;
     private readonly JournalProvider _journalProvider;
     public MainWindow(ILogger<MainWindow> logger, JournalProvider journalProvider)
     {
       InitializeComponent();
       _logger = logger;
       _journalProvider = journalProvider;
-      log.Document.Blocks.Clear();
+      Log.Document.Blocks.Clear();
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-      if(IsRunning)
+      if(_isRunning)
       {
         PowerButton.Background = Brushes.GreenYellow;
-        IsRunning = !IsRunning;
+        _isRunning = !_isRunning;
         _logger.LogDebug("Stop application");
         _journalProvider.ChangeLog("asd");
       }
       else
       {
         PowerButton.Background = Brushes.Red;
-        IsRunning = !IsRunning;
+        _isRunning = !_isRunning;
         _logger.LogDebug("Start application");
       }
     }

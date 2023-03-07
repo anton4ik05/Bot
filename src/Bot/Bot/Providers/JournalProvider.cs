@@ -1,4 +1,6 @@
-﻿using System.Windows.Documents;
+﻿using System;
+using System.Windows.Documents;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Bot.Providers
 {
@@ -7,26 +9,28 @@ namespace Bot.Providers
   /// </summary>
   public class JournalProvider
   {
-    private MainWindow _mainWindow;
+    private readonly IServiceProvider _provider;
 
     /// <summary>
     /// Constructor
     /// </summary>
-    /// <param name="window"></param>
-    public JournalProvider(MainWindow window)
+    public JournalProvider(IServiceProvider provider)
     {
-      _mainWindow= window;
+      _provider = provider;
     }
     /// <summary>
-    /// Add log in log window
+    /// Add Log in Log window
     /// </summary>
     /// <param name="message"></param>
     public void ChangeLog(string message)
     {
-      Paragraph p = new Paragraph(new Run(message));
-      p.LineHeight = 1;
-      _mainWindow.log.Document.Blocks.Add(p);
-      _mainWindow.log.ScrollToEnd();
+      var mainWindow = _provider.GetRequiredService<MainWindow>();
+      Paragraph p = new(new Run(message))
+      {
+        LineHeight = 1
+      };
+      mainWindow.Log.Document.Blocks.Add(p);
+      mainWindow.Log.ScrollToEnd();
     }
   }
 }
