@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using System.Windows;
+using Bot.Services;
 
 namespace Bot
 {
@@ -31,6 +32,7 @@ namespace Bot
       });
       services.AddSingleton<MainWindow>();
       services.AddSingleton<JournalProvider>();
+      services.AddSingleton<BotService>();
     }
     private void OnStartup(object sender, StartupEventArgs e)
     {
